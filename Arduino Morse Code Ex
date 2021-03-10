@@ -1,8 +1,8 @@
 
-char ceviri[] = "sos";
+char kelime[] = "sos";
 
-int note = 800;     
-int audio = 7; 
+int nota = 800;     
+int ses = 7; 
 int led = 9;    
      
 
@@ -21,11 +21,10 @@ void setup() {
 void loop()
 { 
   int i = 0;
-  while( i < sizeof(ceviri) - 1)
+  while( i < sizeof(kelime) - 1)
   {
-  char harf = ceviri[i];
-  harf = toLowerCase(harf);
-  GetChar(harf);
+  char harf = kelime[i];
+  ceviri(harf);
   i= i + 1;
   }
   delay(8000);      
@@ -34,10 +33,10 @@ void loop()
 void cizgi()
 {
   digitalWrite(led, HIGH);     
-  tone(audio, note, cizgiLen);  
+  tone(ses, nota, cizgiLen);  
   delay(cizgiLen); 
   digitalWrite(led, LOW);       
-  noTone(audio);            
+  noTone(ses);            
   delay(duraksama);              
 }
 
@@ -45,52 +44,52 @@ void cizgi()
 void nokta()
 {
   digitalWrite(led, HIGH);    
-  tone(audio, note, noktaLen); 
+  tone(ses, nota, noktaLen); 
   delay(noktaLen);
   digitalWrite(led, LOW);       
-  noTone(audio);            
+  noTone(ses);            
   delay(duraksama);       
 }
 
 
-void GetChar(char harf)
+void ceviri(char harf)
 {
-    if (harf== 'a'){
+    if (harf== 'a' ||  harf== 'A'){
     nokta();
     cizgi();
 }
-    else if (harf== 'b'){
+    else if (harf== 'b'|| harf== 'B'){
     cizgi();
     nokta();
     nokta();
     nokta();
 }
-    else if (harf== 'c'){
+    else if (harf== 'c'|| harf== 'C'){
     cizgi();
-    nokta();
-    cizgi();
-    nokta();
-}
-    else if (harf== 'd'){
-    cizgi();
-    cizgi();
-    nokta();
-}
-    else if (harf== 'e'){
-    nokta();
-}
-    else if (harf== 'f'){
-    nokta();
     nokta();
     cizgi();
     nokta();
 }
-    else if (harf== 'g'){
+    else if (harf== 'd'|| harf== 'D'){
     cizgi();
     cizgi();
     nokta();
 }
-    else if (harf== 'h'){
+    else if (harf== 'e'|| harf== 'E'){
+    nokta();
+}
+    else if (harf== 'f'|| harf== 'F'){
+    nokta();
+    nokta();
+    cizgi();
+    nokta();
+}
+    else if (harf== 'g'|| harf== 'G'){
+    cizgi();
+    cizgi();
+    nokta();
+}
+    else if (harf== 'h'|| harf== 'H'){
     nokta();
     nokta();
     nokta();
@@ -100,90 +99,90 @@ void GetChar(char harf)
     nokta();
     nokta();
 }
-    else if (harf== 'j'){
+    else if (harf== 'j'|| harf== 'J'){
     nokta();
     cizgi();
     cizgi();
     cizgi();
 }
-    else if (harf== 'k'){
+    else if (harf== 'k'|| harf== 'K'){
     cizgi();
     nokta();
     cizgi();
 }
-    else if (harf== 'l'){
+    else if (harf== 'l'|| harf== 'L'){
     nokta();
     cizgi();
     nokta();
     nokta();
 }
-    else if (harf== 'm'){
+    else if (harf== 'm'|| harf== 'M'){
     cizgi();
     cizgi();
 }
-    else if (harf== 'n'){
+    else if (harf== 'n'|| harf== 'N'){
     cizgi();
     nokta();
 }
-    else if (harf== 'o'){
+    else if (harf== 'o'|| harf== 'O'){
     cizgi();
     cizgi();
     cizgi();
 }
-    else if (harf== 'p'){
+    else if (harf== 'p'|| harf== 'P'){
     nokta();
     cizgi();
     cizgi();
     nokta();
 }
-    else if (harf== 'q'){
+    else if (harf== 'q'|| harf== 'Q'){
     cizgi();
     cizgi();
     nokta();
     cizgi();
 }
-    else if (harf== 'r'){
+    else if (harf== 'r'|| harf== 'R'){
     nokta();
     cizgi();
     nokta();
 }
-    else if (harf== 's'){
+    else if (harf== 's'|| harf== 'S'){
     nokta();
     nokta();
     nokta();
     }
-    else if (harf== 't'){
+    else if (harf== 't'|| harf== 'T'){
       cizgi();
 }
-    else if (harf== 'u'){
+    else if (harf== 'u'|| harf== 'U'){
     nokta();
     nokta();
     cizgi();
 }
-    else if (harf== 'v'){
+    else if (harf== 'v'|| harf== 'V'){
     nokta();
     nokta();
     nokta();
     cizgi();
 }
-    else if (harf== 'w'){
+    else if (harf== 'w'|| harf== 'W'){
     nokta();
     cizgi();
     cizgi();
 }
-    else if (harf== 'x'){
+    else if (harf== 'x'|| harf== 'X'){
     cizgi();
     nokta();
     nokta();
     cizgi();
 }
-    else if (harf== 'y'){
+    else if (harf== 'y'|| harf== 'Y'){
     cizgi();
     nokta();
     cizgi();
     cizgi();
 }
-    else if (harf== 'z'){
+    else if (harf== 'z'|| harf== 'Z'){
     cizgi();
     cizgi();
     nokta();
@@ -191,7 +190,7 @@ void GetChar(char harf)
 }
     else{
     digitalWrite(led, LOW);       
-    noTone(audio);            
+    noTone(ses);            
     delay(kelime_arasi);  
 }     
   }
