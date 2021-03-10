@@ -1,0 +1,197 @@
+
+char ceviri[] = "sos";
+
+int note = 800;     
+int audio = 7; 
+int led = 9;    
+     
+
+
+int noktaLen = 100;     
+int cizgiLen = noktaLen * 3;     
+int duraksama = noktaLen;
+int kelime_arasi = noktaLen * 7; 
+
+
+void setup() {                
+  pinMode(led, OUTPUT); 
+}
+
+
+void loop()
+{ 
+  int i = 0;
+  while( i < sizeof(ceviri) - 1)
+  {
+  char harf = ceviri[i];
+  harf = toLowerCase(harf);
+  GetChar(harf);
+  i= i + 1;
+  }
+  delay(8000);      
+}
+
+void cizgi()
+{
+  digitalWrite(led, HIGH);     
+  tone(audio, note, cizgiLen);  
+  delay(cizgiLen); 
+  digitalWrite(led, LOW);       
+  noTone(audio);            
+  delay(duraksama);              
+}
+
+
+void nokta()
+{
+  digitalWrite(led, HIGH);    
+  tone(audio, note, noktaLen); 
+  delay(noktaLen);
+  digitalWrite(led, LOW);       
+  noTone(audio);            
+  delay(duraksama);       
+}
+
+
+void GetChar(char harf)
+{
+    if (harf== 'a'){
+    nokta();
+    cizgi();
+}
+    else if (harf== 'b'){
+    cizgi();
+    nokta();
+    nokta();
+    nokta();
+}
+    else if (harf== 'c'){
+    cizgi();
+    nokta();
+    cizgi();
+    nokta();
+}
+    else if (harf== 'd'){
+    cizgi();
+    cizgi();
+    nokta();
+}
+    else if (harf== 'e'){
+    nokta();
+}
+    else if (harf== 'f'){
+    nokta();
+    nokta();
+    cizgi();
+    nokta();
+}
+    else if (harf== 'g'){
+    cizgi();
+    cizgi();
+    nokta();
+}
+    else if (harf== 'h'){
+    nokta();
+    nokta();
+    nokta();
+    nokta();
+}
+    else if (harf== 'i'){
+    nokta();
+    nokta();
+}
+    else if (harf== 'j'){
+    nokta();
+    cizgi();
+    cizgi();
+    cizgi();
+}
+    else if (harf== 'k'){
+    cizgi();
+    nokta();
+    cizgi();
+}
+    else if (harf== 'l'){
+    nokta();
+    cizgi();
+    nokta();
+    nokta();
+}
+    else if (harf== 'm'){
+    cizgi();
+    cizgi();
+}
+    else if (harf== 'n'){
+    cizgi();
+    nokta();
+}
+    else if (harf== 'o'){
+    cizgi();
+    cizgi();
+    cizgi();
+}
+    else if (harf== 'p'){
+    nokta();
+    cizgi();
+    cizgi();
+    nokta();
+}
+    else if (harf== 'q'){
+    cizgi();
+    cizgi();
+    nokta();
+    cizgi();
+}
+    else if (harf== 'r'){
+    nokta();
+    cizgi();
+    nokta();
+}
+    else if (harf== 's'){
+    nokta();
+    nokta();
+    nokta();
+    }
+    else if (harf== 't'){
+      cizgi();
+}
+    else if (harf== 'u'){
+    nokta();
+    nokta();
+    cizgi();
+}
+    else if (harf== 'v'){
+    nokta();
+    nokta();
+    nokta();
+    cizgi();
+}
+    else if (harf== 'w'){
+    nokta();
+    cizgi();
+    cizgi();
+}
+    else if (harf== 'x'){
+    cizgi();
+    nokta();
+    nokta();
+    cizgi();
+}
+    else if (harf== 'y'){
+    cizgi();
+    nokta();
+    cizgi();
+    cizgi();
+}
+    else if (harf== 'z'){
+    cizgi();
+    cizgi();
+    nokta();
+    nokta();
+}
+    else{
+    digitalWrite(led, LOW);       
+    noTone(audio);            
+    delay(kelime_arasi);  
+}     
+  }
