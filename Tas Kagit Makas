@@ -1,0 +1,92 @@
+#include <iostream> 
+#include <iomanip> 
+#include <algorithm>
+#include <time.h>
+
+using namespace std;
+
+int main()
+{
+    int galibiyet=0;
+    int maglubiyet=0;
+    int berabere=0;
+    const char *myarray[5]{"T","K","M","X"};
+    int kullanici_choice;
+
+
+    while(true)
+    {
+        cout << "Tas(T) Kagit(K) veya Makas(M)dan birini seciniz ya da cikis yapmak icin X e basınız "<< endl;
+        cin >> 	kullanici_choice;
+        
+
+		if(kullanici_choice=='X'){
+			break;
+		}
+		else{
+			srand ( time(NULL) );
+			const char *arrayNum[3] = {"T","K","M"};
+            int bilgisayar_choice = rand() % 3;
+            
+            
+            if (bilgisayar_choice=='T'){
+            	if (kullanici_choice == 'K'   and   bilgisayar_choice=='T'){
+            		cout << "Kazandınız "<< endl;
+            		galibiyet+=1;
+            		continue;
+            	}
+            	else if (kullanici_choice == 'M'   and   bilgisayar_choice=='T'){
+            		cout << "Kaybettiniz "<< endl;
+            		maglubiyet+=1;
+            		continue;
+            	}
+				else{
+					cout << "Berabere "<< endl;
+            		berabere+=1;
+            		continue;
+				}	
+				}
+            if (bilgisayar_choice=='M'){
+            	if (kullanici_choice == 'T'   and   bilgisayar_choice=='M'){
+            		cout << "Kazandınız "<< endl;
+            		galibiyet+=1;
+            		continue;
+            	}
+            	else if (kullanici_choice == 'K'   and   bilgisayar_choice=='M'){
+            		cout << "Kaybettiniz "<< endl;
+            		maglubiyet+=1;
+            		continue;
+            	}
+				else{
+					cout << "Berabere "<< endl;
+            		berabere+=1;
+            		continue;
+				}	
+				}
+            if (bilgisayar_choice=='K'){
+            	if (kullanici_choice == 'M'   and   bilgisayar_choice=='K'){
+            		cout << "Kazandınız "<< endl;
+            		galibiyet+=1;
+            		continue;
+            	}
+            	else if (kullanici_choice == 'T'   and   bilgisayar_choice=='K'){
+            		cout << "Kaybettiniz "<< endl;
+            		maglubiyet+=1;
+            		continue;
+            	}
+				else{
+					cout << "Berabere "<< endl;
+            		berabere+=1;
+            		continue;
+				}	
+				}				
+						
+
+				}
+            	
+            	
+            	
+			}
+            
+    return 0;
+}
