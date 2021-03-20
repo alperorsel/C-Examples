@@ -20,17 +20,18 @@ int main()
         cin >> 	kullanici_choice;
         
 
-		if(kullanici_choice=='X'){
+		if(kullanici_choice=="X"){
 			break;
 		}
 		else{
 			srand ( time(NULL) );
-			const char *arrayNum[3] = {"T","K","M"};
-            int bilgisayar_choice = rand() % 3;
+			char* secenek[3] = {"T","K","M"};
+            int degisken = rand() % 3;
+            char* bilgisayar_choice=secenek[degisken];
             
             
-            if (bilgisayar_choice=='T'){
-            	if (kullanici_choice == 'K'   and   bilgisayar_choice=='T'){
+            if (bilgisayar_choice=="T"){
+            	if (kullanici_choice == "K"   and   bilgisayar_choice=="T"){
             		cout << "Kazandınız "<< endl;
             		galibiyet+=1;
             		continue;
