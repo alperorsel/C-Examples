@@ -1,15 +1,3 @@
-/*  
-  After identifying the problem, how to combine the load cell and arduino for the project, was investigated. First of all, the Load cell is a highly sensitive device used 
-  to measure weight or force in a number of different applications. They can be used to measure compression, pull, bending or shear forces.
-In the later stages of the project, the codes of Arduino UNO were written. Then it was decided to use a yellow LED and a siren to alert the system. 
-
- I connected to the controller;
--Sounder to the 10th output,
--LED to the 9th output,
--HX711 to the 3rd output
-
-
-*/
 #include "HX711.h"
 
 
