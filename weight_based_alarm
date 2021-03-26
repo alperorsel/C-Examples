@@ -1,0 +1,53 @@
+/*  
+  After identifying the problem, how to combine the load cell and arduino for the project, was investigated. First of all, the Load cell is a highly sensitive device used 
+  to measure weight or force in a number of different applications. They can be used to measure compression, pull, bending or shear forces.
+In the later stages of the project, the codes of Arduino UNO were written. Then it was decided to use a yellow LED and a siren to alert the system. 
+
+ I connected to the controller;
+-Sounder to the 10th output,
+-LED to the 9th output,
+-HX711 to the 3rd output
+
+
+*/
+
+#include "HX711.h" 
+#define calibration_factor 18029.57 //This value is obtained using the SparkFun_HX711_Calibration sketch #define Buz 10 
+#define R_Led 9 
+#define DOUT 3
+ #define CLK 2 
+
+float weight; 
+HX711 scale; 
+
+void setup() {
+ pinMode(Buz, OUTPUT);
+ pinMode(R_Led, OUTPUT); 
+digitalWrite(Buz,LOW); 
+digitalWrite(R_Led,LOW); 
+
+
+scale.begin(DOUT, CLK); 
+scale.set_scale(calibration_factor); //This value is obtained by using the SparkFun_HX711_Calibration sketch 
+scale.tare(); //Assuming there is no weight on the scale at start up, reset the scale to 0
+
+ } 
+
+
+
+void loop() { 
+
+weight=scale.get_units()/2;
+
+ if(weight != 0) 
+
+{
+ digitalWrite(R_Led,HIGH); 
+analogWrite(Buz,20); delay(2000); 
+digitalWrite(R_Led,LOW); 
+analogWrite(Buz,0); 
+delay(2000); 
+
+}
+
+ }
